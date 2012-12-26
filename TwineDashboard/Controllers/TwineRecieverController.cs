@@ -11,6 +11,7 @@ namespace TwineDashboard.Controllers
 		//TODO: try async/await
 		public void Get()
 		{
+			//http://localhost:5935/api/TwineReciever/?temperature=25&orientation=top
 			var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
 			var temperature = nvc["temperature"];
 			var orientation = nvc["orientation"];
