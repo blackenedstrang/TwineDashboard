@@ -18,14 +18,14 @@ namespace TwineDashboard.Controllers
 		public void HighTemperature(string temperature)
 		{
 			var celsius = TemperatureConverter.FahrenheitToCelsius(temperature);
-			_twineHubNotifier.Notify(string.Format("High temperature - {0} C", celsius));
+			_twineHubNotifier.Notify(string.Format("High temperature: {0} C", celsius));
 		}
 
 		[HttpGet]
 		public void LowTemperature(string temperature)
 		{
 			var celsius = TemperatureConverter.FahrenheitToCelsius(temperature);
-			_twineHubNotifier.Notify(string.Format("Low temperature - {0} C", celsius));
+			_twineHubNotifier.Notify(string.Format("Low temperature: {0} C", celsius));
 		}
 
 		[HttpGet]
