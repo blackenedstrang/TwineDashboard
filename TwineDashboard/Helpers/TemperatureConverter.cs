@@ -1,27 +1,29 @@
-﻿namespace TwineDashboard.Helpers
+﻿using System;
+
+namespace TwineDashboard.Helpers
 {
 	public static class TemperatureConverter
 	{
 		public static double CelsiusToFahrenheit(string temperatureCelsius)
 		{
 			// Convert argument to double for calculations.
-			double celsius = System.Double.Parse(temperatureCelsius);
+			double celsius = Double.Parse(temperatureCelsius);
 
 			// Convert Celsius to Fahrenheit.
 			double fahrenheit = (celsius * 9 / 5) + 32;
 
-			return fahrenheit;
+			return Math.Round(fahrenheit, 0);
 		}
 
 		public static double FahrenheitToCelsius(string temperatureFahrenheit)
 		{
 			// Convert argument to double for calculations.
-			double fahrenheit = System.Double.Parse(temperatureFahrenheit);
+			double fahrenheit = Double.Parse(temperatureFahrenheit);
 
 			// Convert Fahrenheit to Celsius.
 			double celsius = (fahrenheit - 32) * 5 / 9;
 
-			return celsius;
+			return Math.Round(celsius, 0);
 		}
 	}
 }
