@@ -1,4 +1,6 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Configuration;
+using System.Web.Http;
 using TwineDashboard.Helpers;
 using TwineDashboard.Services;
 
@@ -32,7 +34,6 @@ namespace TwineDashboard.Controllers
 		public void WaterDetected()
 		{
 			_twineHubNotifier.Notify("Water detected!");
-			//TODO: send SMS with Twilio
 		}
 	}
 }
