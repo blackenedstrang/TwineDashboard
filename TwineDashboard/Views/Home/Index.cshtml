@@ -17,11 +17,16 @@
 
 		// Start the connection
 		$.connection.hub.start();
+		
+		$("#clear_alerts").click(function () {
+			$('#alert_placeholder').empty();
+		});
 	});
 </script>
 
 <div class="row">
 	<div class="span5">
+		<button id="clear_alerts">Clear alerts</button>
 		<div id="alert_placeholder">
 		</div>
 	</div>
