@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using TwineDashboard.Helpers;
 using TwineDashboard.Services;
 
 namespace TwineDashboard.Controllers
@@ -17,7 +18,8 @@ namespace TwineDashboard.Controllers
 		[HttpGet] //http://localhost/TwineDashboard/api/TwineReciever/HighTemperature?temperature=42
 		public string HighTemperature(string temperature)
 		{
-			_twineHubNotifier.Notify(string.Format("High temperature - {0}", temperature));
+			var celsius = TemperatureConverter.FahrenheitToCelsius(temperature);
+			_twineHubNotifier.Notify(string.Format("High temperature - {0}C", celsius));
 			return temperature;
 		}
 
