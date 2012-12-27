@@ -46,18 +46,19 @@
     @* favicons and touch icons go here *@
 </head>
 <body>
-    <div class="container">
+	@Scripts.Render("~/js")
+	@RenderSection("Scripts", required: false)
 
-        @Html.Partial("_alerts")
-        @RenderBody()
-        <hr>
-        <footer>
-            <p>&copy; blackened @System.DateTime.Now.ToString("yyyy")</p>
-        </footer>
+	<div class="container">
 
-    </div> <!-- container -->
-    @Scripts.Render("~/js")
-    @RenderSection("Scripts", required: false)
+		@Html.Partial("_alerts")
+		@RenderBody()
+		<hr>
+		<footer>
+			<p>&copy; blackened @System.DateTime.Now.ToString("yyyy")</p>
+		</footer>
+
+	</div> <!-- container -->
 </body>
 </html>
 
