@@ -8,26 +8,32 @@
 <script src="~/signalr/hubs" type="text/javascript"></script>
 <script type="text/javascript">
 	$(function () {
+		var alertsCounter = 0;
+		var originalTitle = document.title;
+		
 		var twine = $.connection.twine;
-
-		// Declare a function on the chat hub so the server can invoke it          
 		twine.client.addMessage = function (message) {
 			bootstrap_alert.attention(message, "#alert_placeholder");
+			updateTitle(++alertsCounter);
 		};
-
-		// Start the connection
 		$.connection.hub.start();
 		
 		$("#clear_alerts").click(function () {
 			$('#alert_placeholder').empty();
+			alertsCounter = 0;
+			updateTitle(alertsCounter);
 		});
+		
+		function updateTitle(counter) {
+			document.title = ((counter > 0) ? "(" + counter + ") " : "") + originalTitle;
+		}
 	});
 </script>
 
 <div class="row">
 	<div class="span5">
 		<button class="btn-danger" id="clear_alerts">Clear alerts</button>
-		<br/>
+		<br/><br/>
 		<div id="alert_placeholder">
 		</div>
 	</div>
